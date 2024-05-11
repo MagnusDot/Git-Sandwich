@@ -16,8 +16,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - name: Déployer sur gh-pages
-        uses: actions/deploy-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            branch: gh-pages
-            directory: Romaine # Remplacer par le nom de votre dossier
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            BRANCH: gh-pages # The branch the action should deploy to.
+            FOLDER: Romaine/ # The folder the action should deploy.
+            BASE_BRANCH: master
