@@ -1,0 +1,13 @@
+name: workflow run
+run-name: 🚀🚀🚀🚀🚀
+on: 
+  workflow_run:
+    workflows: [GitHub Actions Demo]
+    types:
+      - in_progress
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      
