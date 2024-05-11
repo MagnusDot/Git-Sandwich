@@ -2,7 +2,7 @@ name: workflow run
 run-name: 🚀🚀🚀🚀🚀
 on: 
   workflow_run:
-    workflows: [GitHub Actions Demo]
+    workflows: [TestDemo]
     types:
       - in_progress
 jobs:
