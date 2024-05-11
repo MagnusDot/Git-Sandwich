@@ -18,6 +18,11 @@ jobs:
       - name: create readme on Romaine folder
         run: |
           echo ${{github.event.repository.updated_at}} > Romaine/README.md
+      - name: store artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: romaine
+          path: Romaine
       - name: Déployer sur gh-pages
         uses: s0/git-publish-subdir-action@develop
         env:
@@ -30,6 +35,9 @@ jobs:
         needs: my-first-job
         runs-on: ubuntu-latest
         steps:
-            - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-            - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-            - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+            - name: download artifact
+              uses: actions/download-artifact@v2
+              with:
+                name: romaine
+                path: testRomain
+            - run: ls
